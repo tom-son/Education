@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans';
+    
+    color: #5a5b5e;
+}
+
+h1 {
+    font-size: 3em;
+    color: #292929;
+}
+
+h3 {
+    color: #292929;
+}

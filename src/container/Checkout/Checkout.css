@@ -1,0 +1,115 @@
+.checkoutContainer {
+    /* display: flex; */
+    /* flex-direction: row; */
+}
+
+.cart {
+    width: 100%;
+    height: 100vh;
+    background-color: #2D208F;
+    padding: 15px 20px;
+}
+
+.cartWrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cart h1, .cart li {
+    color: white;
+    font-weight: 200;
+    padding-bottom: 15px;
+}
+
+.form {
+    width: 100%;
+    /* margin: 0 auto; */
+}
+
+.paymentButton {
+    width: 100%;
+    height: 50px;
+    background-color: #4c7ef3;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 100;
+    border: none;
+}
+
+.paymentButton:hover {
+    background-color: rgba(68, 104, 204, 0.8);
+    transition: 0.1s ease;
+}
+
+.minimise {
+    height: 120px;
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (min-width:500px) {
+    .cartWrapper {
+        width: 480px;
+        margin: 0 auto;
+    }
+
+    .minimise {
+        height: 100%;
+        transition: 0.3s ease;
+        overflow: hidden;
+    }
+
+    .paymentButton {
+        display: none;
+    }
+}
+
+@media (min-width:750px) {
+    .checkoutContainer {
+        display: flex;
+    }
+    
+    .cart {
+        width: 40%;
+    }
+
+    .cartWrapper {
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    .form {
+        float: left;
+    }
+
+    .hidden {
+        display: block; 
+    }
+
+    
+}
+
+@media (min-width:900px) {
+    .cart {
+        width: 400px;
+    }
+
+    .cartWrapper {
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    .form {
+        float: left;
+    }
+
+    .hidden {
+        display: block; 
+    }
+}
+
+    

@@ -1,0 +1,22 @@
+.courses {
+    width: 100%;
+    padding: 15px;
+    line-height: 28px;
+}
+
+.borderBottom {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(235, 235, 235, 0.8);
+}
+
+@media (min-width: 650px) {
+    .courses {
+        padding: 15px 35px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .courses {
+        padding: 15px 60px;
+    }
+}
