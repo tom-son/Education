@@ -1,3 +1,28 @@
-.input {
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+}
+
+/* .error {
+    color: red;
+} */
+
+.red {
+    border: 1px solid #fdb4bd;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.errorMessage {
+    font-size: 0.7em;
+    color: #ff5064;
+}
+
+.input {
+    height: 40px;
+    background-color: white;
+    outline: none;
 }

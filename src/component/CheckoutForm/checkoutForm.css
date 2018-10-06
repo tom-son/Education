@@ -1,3 +1,51 @@
+button {
+    width: 100%;
+    height: 50px;
+    background-color: #4c7ef3;
+    color: white;
+}
+
 .form {
-    width: 200px;
+    display: flex ;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+    width: 400px;
+    /* height: 300px; */
+    /* padding: 50px; */
+}
+
+.input {
+
+}
+
+.firstName {
+    width: 47%;
+}
+
+.lastName {
+    width: 47%;
+}
+
+.creditCard {
+    width: 100%;
+}
+
+.expiry {
+    width: 47%;
+}
+
+.ccv {
+    width: 140px;
+    margin-right: 25%;
+
+}
+
+.school {
+    width: 47%;
+}
+
+.postcode {
+    width: 20%;
+    margin-right: 25%;
 }
