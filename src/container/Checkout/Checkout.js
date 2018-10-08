@@ -61,7 +61,7 @@ class Cart extends Component {
                     length: 2
                 }, 
                 errorMessage: "Must have 2 numbers each",
-                isValid: true
+                isValid: false
             },
             ccv: {
                 name: "CCV/Security Code",
@@ -108,10 +108,21 @@ class Cart extends Component {
         console.log(this.state.minimiseCart);
     }
 
+
+    // value input onChange handler
     valueHandler = ({target: {id, name, value}}) => {
         const form = this.state.form;
         switch(name) {
+            // Special case since expiry has two values for the two input tags
             case "expiry":
+                let isValid = true;
+                for (var valueKey in form[name].value) {
+                    if(valueKey === id && isValid) {        // Validate value from new input value. Since new values, can't pull from state. value will be most updated user input.
+                        isValid = this.validate(value, form[name].validationRules);
+                    } else if (valueKey !== id && isValid) {        // Validate other value from state. Since they're not update, can access from state.
+                        isValid = this.validate(form[name].value[valueKey], form[name].validationRules);
+                    }
+                }
                 this.setState({
                     form: {
                         ...form,
@@ -120,13 +131,14 @@ class Cart extends Component {
                             value: {
                                 ...form[name].value,
                                 [id]: value,
-                                wasTouched: true,
-                                isValid: this.validate(value, form[name].validationRules)
-                            }
+                            },
+                            wasTouched: true,
+                            isValid: isValid
                         }
                     }
                 });
                 break;
+            // Otherwise default. Default: 1 value for 1 input. Check case "expiry" for other condition.
             default:
                 this.setState({
                     form: {
@@ -141,11 +153,9 @@ class Cart extends Component {
                 });
                 break;
         }
-
-        console.log(this.state.form, value);
-
     }
 
+    // validate logic
     validate = (value, rules) => {
         if(rules.minLength && value.length < rules.minLength) {
             return false;
@@ -159,6 +169,7 @@ class Cart extends Component {
         return true;
     }
 
+    // return boolean. Test if all input fields are valid
     checkFormValidity = () => {
         let isFormValid = true;
         for(let inputElement in this.state.form) {
@@ -178,6 +189,10 @@ class Cart extends Component {
         const isFormValid = this.checkFormValidity();
         console.log(this.state.form);
         console.log(isFormValid);
+        if(isFormValid) {
+            this.props.history.push("/");
+        }
+        
     }
 
     render() {
